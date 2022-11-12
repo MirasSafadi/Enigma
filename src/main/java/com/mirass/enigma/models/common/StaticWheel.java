@@ -1,13 +1,15 @@
 package com.mirass.enigma.models.common;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+
 import java.util.HashMap;
 
-public abstract class StaticWheel {
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+public class StaticWheel {
     protected HashMap<Character,Character> characterMapping;
 
-    protected StaticWheel(HashMap<Character,Character> characterMapping){
-        this.characterMapping = characterMapping;
+    public char getOutCharacter(char inCharacter){
+        return this.characterMapping.get(inCharacter);
     }
-
-    public abstract char getOutCharacter(char inCharacter);
 }
